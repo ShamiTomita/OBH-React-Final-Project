@@ -5,10 +5,10 @@ import HomeContainer from './containers/HomeContainer.js'
 class App extends Component {
   render(){
   return (
-    <div className="App">
+    <>
       <SigninContainer />
       <HomeContainer />
-    </div>
+    </>
     );
   }
 }

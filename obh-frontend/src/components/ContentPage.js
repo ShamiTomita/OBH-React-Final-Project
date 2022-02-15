@@ -1,8 +1,10 @@
 import React, {Component} from "react"
 
 class ContentPage extends Component {
+
   render(){
-    console.log("ContentPage", this.props.media)
+    debugger
+    console.log("ContentPage", this.props)
     const content = this.props.media.map((content)=>{
       return<div key={content.attributes.id}>
               <h3>{content.attributes.title}</h3>

@@ -5,8 +5,8 @@ import App from './App';
 import { Provider } from "react-redux"
 import {createStore, applyMiddleware} from "redux"
 import thunk from "redux-thunk"
-import contentReducer from "./reducers/contentReducer.js"
-const store = createStore(contentReducer, applyMiddleware(thunk))
+import combineReducers from './reducers/index.js'
+const store = createStore(combineReducers, applyMiddleware(thunk))
 
 
 ReactDOM.render(

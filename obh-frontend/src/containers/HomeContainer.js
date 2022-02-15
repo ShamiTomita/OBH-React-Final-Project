@@ -19,7 +19,7 @@ state = {
   }
 
   render(){
-    console.log("wender", this.props.media)
+    console.log("wender", this.state)
     return(
 
       <Router>
@@ -36,8 +36,8 @@ state = {
 
 const mSTP = (state) => {
   return{
-    media: state.content,
-    loading: state.loading
+    media: state.contentReducer.content,
+    loading: state.contentReducer.loading
   }
 }
 

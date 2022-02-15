@@ -25,6 +25,7 @@ gem 'json'
 gem 'uri'
 gem 'rest-client'
 gem 'fast_jsonapi'
+gem 'rack-cors'
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
 

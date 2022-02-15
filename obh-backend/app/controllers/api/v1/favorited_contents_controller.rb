@@ -15,11 +15,15 @@ class  Api::V1::FavoritedContentsController < ApplicationController
   end
 
   def show
+    user = User.find(user_id: params[:user_id])
     favorite = FavoritedContent.find_by(id: params[:id])
     render json: FavoritedContentSerializer.new(favorite)
   end
 
   private
+  def set_user
+    @user = User.find(params[:user_id])
+  end
   def favorited_content_params
     params.permit(:user_id, :content_id)
   end

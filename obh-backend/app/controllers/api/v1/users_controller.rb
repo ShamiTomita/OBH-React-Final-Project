@@ -10,13 +10,14 @@ class  Api::V1::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
-    render json: UserSerializer.new(@users)
+    users = User.all
+    render json: UserSerializer.new(users)
   end
 
   def show
     user = User.find_by(id: params[:id])
-    render json: UserSerializer.new(user)
+    options = {include: [:favorited_contents, :contents]}
+    render json: UserSerializer.new(user, options)
   end
 
 

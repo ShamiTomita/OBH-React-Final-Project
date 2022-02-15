@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
   has_secure_password
   has_many :users
-  validates :name, :email, presence: true
-  validates :name, :email, uniqueness: true
+  validates :username, :email, presence: true
+  validates :username, :email, uniqueness: true
 end

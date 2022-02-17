@@ -3,7 +3,6 @@ import React, {Component} from "react"
 class ContentPage extends Component {
 
   render(){
-    debugger
     console.log("ContentPage", this.props)
     const content = this.props.media.map((content)=>{
       return<div key={content.attributes.id}>

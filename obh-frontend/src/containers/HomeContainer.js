@@ -5,18 +5,9 @@ import {
   Route
 } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import ContentPage from '../components/ContentPage.js'
-import { connect } from "react-redux";
-import {fetchContent} from "../actions/contentActions.js"
+import ContentContainer from './ContentContainer.js';
+import SignUpContainer from './SignUpContainer.js';
 class HomeContainer extends Component{
-state = {
-  content: []
-}
-
-  componentDidMount(){
-    console.log("cDM", this.props);
-    this.props.fetchContent();
-  }
 
   render(){
     console.log("wender", this.state)
@@ -26,7 +17,8 @@ state = {
       <NavBar />
         <Routes>
           <Route exact path="/" render={() => <div>Home</div>} />
-          <Route path="/content" element={<ContentPage media={this.props.media}/>}/>
+          <Route path="/content" element={<ContentContainer />}/>
+          <Route path="/signup" element={<SignUpContainer />}/>
         </Routes>
       </Router>
 
@@ -34,16 +26,4 @@ state = {
   }
 }
 
-const mSTP = (state) => {
-  return{
-    media: state.contentReducer.content,
-    loading: state.contentReducer.loading
-  }
-}
-
-const mDTP = (dispatch) => {
-  return {
-    fetchContent: () => dispatch(fetchContent())
-  }
-}
-export default connect(mSTP, mDTP)(HomeContainer)
+export default (HomeContainer)

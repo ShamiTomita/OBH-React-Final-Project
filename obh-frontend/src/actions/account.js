@@ -1,5 +1,5 @@
 export const addAccount = (data) => {
-  
+
   console.log(data)
   return (dispatch) => {
     dispatch({type: 'ADD_ACCOUNT'});

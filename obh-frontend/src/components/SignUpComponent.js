@@ -6,7 +6,7 @@ class SignUpComponent extends Component {
 state ={
   username:'',
   email:'',
-  password_digest:''
+  password:''
 }
   handleOnChange = (event) =>{
     this.setState({
@@ -20,7 +20,7 @@ state ={
    this.setState({
      username:'',
      email: '',
-    password_digest:''
+    password:''
    })
  }
 
@@ -29,11 +29,11 @@ state ={
       <div>
         <form onSubmit={this.handleOnSubmit}>
           <label>Account Name:</label>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/>
+          <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/><br></br>
           <label>Email:</label>
-          <input type="text" name="email" value={this.state.email}onChange={this.handleOnChange}/>
+          <input type="text" name="email" value={this.state.email}onChange={this.handleOnChange}/><br></br>
           <label>Password:</label>
-          <input type="text" name="password_digest"value={this.state.password_digest}onChange={this.handleOnChange}/>
+          <input type="text" name="password"value={this.state.password}onChange={this.handleOnChange}/><br></br>
           <input type="submit"/>
         </form>
       </div>

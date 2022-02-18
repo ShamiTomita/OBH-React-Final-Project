@@ -71,6 +71,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.session_store :cookie_store, key: '_interslice_session'
+config.middleware.use ActionDispatch::Cookies
+config.middleware.use config.session_store, config.session_options
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end

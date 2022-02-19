@@ -4,6 +4,11 @@ export const setCurrentAccount = account => {
     account
   }
 }
+export const clearCurrentUser = () => {
+  return {
+    type: "CLEAR_CURRENT_USER"
+  }
+}
 export const addAccount = (data) => {
 
   console.log(data)
@@ -75,5 +80,15 @@ export const currentAccount = () => {
         }
       })
       .catch(console.log)
+  }
+}
+
+export const logout = event => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch('http://localhost:3000/api/v1/logout', {
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }

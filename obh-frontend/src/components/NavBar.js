@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LogoutComponent from './LogoutComponent'
 
 const NavBar = () => {
   return (
@@ -16,11 +17,23 @@ const NavBar = () => {
         >
           SignUp
         </NavLink>
+        <NavLink
+          style={{ marginRight: '10px' }}
+          to="/login"
+        >
+          Login
+        </NavLink>
       <NavLink
         style={{ marginRight: '10px' }}
         to="/content"
       >
         Content
+      </NavLink>
+      <NavLink
+        style={{ marginRight: '10px' }}
+        to="/logout"
+      >
+        Logout
       </NavLink>
     </div>
   );

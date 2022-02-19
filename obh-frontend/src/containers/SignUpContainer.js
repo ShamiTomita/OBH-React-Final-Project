@@ -3,13 +3,13 @@ import SignUpComponent from '../components/SignUpComponent'
 import LoginComponent from '../components/LoginComponent'
 class SignUpContainer extends Component{
 
+
   render(){
+    console.log(this.props)
     return(
       <div>
       <h1>SIGN UP</h1>
       <SignUpComponent />
-      <h1>LOGIN</h1>
-      <LoginComponent />
       </div>
 
     )

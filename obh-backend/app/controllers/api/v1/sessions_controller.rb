@@ -1,7 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
-
+skip_before_action :verify_authenticity_token
      def create
-      
         @account = Account.find_by(username: params[:session][:username])
         if @account && @account.authenticate(params[:session][:password])
           session[:account_id] = @account.id
@@ -16,24 +15,21 @@ class Api::V1::SessionsController < ApplicationController
         end
       end
 
-        def is_logged_in?
-        @current_account = Account.find(session[:account_id]) if session[:account_id]
-        if @current_account
-          render json: {
-            logged_in: true,
-            user: AccountSerializer.new(@current_account)
-          }
-        else
-          render json: {
-            logged_in: false
-          }
-        end
-      end
+    def is_logged_in?
+      if logged_in?
+       render json: AccountSerializer.new(current_account)
+      else
+       render json: {
+         error: "No one logged in"
+       }
+     end
+   end
+
       def destroy
         session.delete :account_id
         render json: {
           status: 200,
-          logged_out: true
+          is_LoggedIn: false
         }
       end
 

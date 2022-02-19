@@ -12,7 +12,7 @@ class Api::V1::AccountsController < ApplicationController
   end
 
   def index
-    
+
     @accounts = Account.all
     render json: AccountSerializer.new(@accounts)
   end

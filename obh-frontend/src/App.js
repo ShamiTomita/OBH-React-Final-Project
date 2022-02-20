@@ -3,15 +3,8 @@ import './App.css';
 import HomeContainer from './containers/HomeContainer.js'
 import {connect} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
-import NavBar from './components/NavBar';
-import ContentContainer from './containers/ContentContainer.js';
-import LogoutComponent from './components/LogoutComponent.js'
-
+import LoginComponent from './components/LoginComponent'
+import SignUpComponent from './components/SignUpComponent'
 class App extends Component {
   componentDidMount(){
     this.props.currentAccount()
@@ -19,18 +12,18 @@ class App extends Component {
   render(){
     const {is_LoggedIn, account} = this.props
   console.log("app", this.props)
-  return (
+  return( is_LoggedIn ?
     <>
-    <Router>
-    <NavBar />
-      <Routes>
-        <Route exact path="/" element={<HomeContainer loggedIn={this.props.is_LoggedIn}/>} />
-        <Route path="/content" element={<ContentContainer />}/>
-        <Route path='/logout' element={<LogoutComponent/>}/>
-      </Routes>
-    </Router>
-
+      <HomeContainer loggedIn={this.props.is_LoggedIn}/>
     </>
+    :
+    <div>
+      <h1>Please Login or SignUp</h1>
+      <h3>LOGIN</h3>
+      <LoginComponent/>
+      <h3>SIGNUP</h3>
+      <SignUpComponent/>
+    </div>
     );
   }
 }

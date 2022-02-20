@@ -5,8 +5,9 @@ export const setCurrentAccount = account => {
   }
 }
 export const clearCurrentUser = () => {
+  console.log("clearing")
   return {
-    type: "CLEAR_CURRENT_USER"
+    type: "CLEAR_CURRENT_ACCOUNT"
   }
 }
 export const addAccount = (data) => {

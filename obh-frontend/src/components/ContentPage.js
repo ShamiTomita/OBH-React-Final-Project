@@ -5,7 +5,7 @@ class ContentPage extends Component {
   render(){
     console.log("ContentPage", this.props)
     const content = this.props.media.map((content)=>{
-      return<div key={content.attributes.id}>
+      return<div key={content.id}>
               <h3>{content.attributes.title}</h3>
               <p>{content.attributes.content_type} | {content.attributes.country} | {content.attributes.language} | {content.attributes.year}</p>
               <p>{content.attributes.director} | {content.attributes.genre}</p>

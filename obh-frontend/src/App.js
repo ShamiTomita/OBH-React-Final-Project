@@ -10,8 +10,6 @@ import {
 } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ContentContainer from './containers/ContentContainer.js';
-import SignUpContainer from './containers/SignUpContainer.js';
-import LoginContainer from './containers/LoginContainer.js'
 import LogoutComponent from './components/LogoutComponent.js'
 
 class App extends Component {
@@ -19,7 +17,7 @@ class App extends Component {
     this.props.currentAccount()
   }
   render(){
-    const {is_logged_in, username} = this.props
+    const {is_LoggedIn, account} = this.props
   console.log("app", this.props)
   return (
     <>
@@ -28,8 +26,6 @@ class App extends Component {
       <Routes>
         <Route exact path="/" element={<HomeContainer loggedIn={this.props.is_LoggedIn}/>} />
         <Route path="/content" element={<ContentContainer />}/>
-        <Route path="/signup" element={<SignUpContainer />}/>
-        <Route path="/login" element={<LoginContainer />}/>
         <Route path='/logout' element={<LogoutComponent/>}/>
       </Routes>
     </Router>
@@ -39,8 +35,10 @@ class App extends Component {
   }
 }
 const mapStateToProps = state => {
+  console.log("State", state)
   return ({
     is_LoggedIn: !!state.currentAccount,
+    account: state.currentAccount
   })
 }
 export default connect(mapStateToProps,{currentAccount})(App)

@@ -2,7 +2,7 @@ const accountReducer = (state = {accounts:[], id: null, username: '', is_LoggedI
   switch(action.type){
 
     case "ADD_ACCOUNT":
-    console.log(action)
+    console.log(action.account)
       return{
         ...state,
         accounts: action.account

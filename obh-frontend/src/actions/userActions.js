@@ -1,5 +1,25 @@
+export const setCurrentUser = (user) => {
+  console.log("SCU")
+  return{
+    type: "SET_CURRENT_USER",
+    user
+  }
+}
+
+export const fetchUsers = (account_id) =>{
+  
+  return(dispatch) =>{
+    return fetch(`http://localhost:3000/api/v1/accounts/${account_id}/users`, {
+      method: "GET"
+    })
+    .then(response => response.json())
+    .then((responseJSON) => {
+        console.log("fetching:",responseJSON.data)
+        dispatch({ type: "FETCH_USERS", users: responseJSON.data });
+      });
+  };
+};
 export const addUser = user => {
-  console.log(user)
   return (dispatch) => {
     return fetch(`http://localhost:3000/api/v1/accounts/${user.account_id}/users`, {
       credentials: "include",
@@ -15,10 +35,7 @@ export const addUser = user => {
       if (responseJSON.error){
         alert(responseJSON.error)
       }else{
-        console.log(responseJSON)
-
-        //dispatch({type: "ADD_USER", user:responseJSON.user})
-        //dispatch(setCurrentAccount(responseJSON.account))
+        dispatch({type: "ADD_USER", user:responseJSON.user})
       }
     })
 

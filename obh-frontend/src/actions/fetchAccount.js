@@ -39,7 +39,6 @@ export const addAccount = (data) => {
 }
 
 export const fetchAccount = (credentials) => {
-  console.log(credentials)
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/login', {
       credentials: "include",

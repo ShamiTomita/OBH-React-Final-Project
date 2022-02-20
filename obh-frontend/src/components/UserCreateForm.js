@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import { connect } from "react-redux";
 import {addUser} from "../actions/userActions.js"
-import {currentAccount} from '../actions/fetchAccount.js'
 class UserCreateForm extends Component {
 
 state ={

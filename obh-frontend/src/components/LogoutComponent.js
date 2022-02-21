@@ -1,15 +1,14 @@
-
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from "../actions/fetchAccount.js"
-
+import {resetLoginForm} from "../actions/loginForm.js"
 
 
 const Logout = ({ logout}) => {
   return (
     <form onSubmit={(event) => {
         event.preventDefault()
+        resetLoginForm()
         logout()
       }
     }>
@@ -18,4 +17,4 @@ const Logout = ({ logout}) => {
   )
 }
 
-export default connect(null, { logout } )(Logout)
+export default connect(null, { logout, resetLoginForm } )(Logout)

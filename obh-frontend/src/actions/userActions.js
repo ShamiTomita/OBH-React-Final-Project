@@ -7,7 +7,8 @@ export const setCurrentUser = (user) => {
 }
 
 export const fetchUsers = (account_id) =>{
-  
+
+  console.log(account_id)
   return(dispatch) =>{
     return fetch(`http://localhost:3000/api/v1/accounts/${account_id}/users`, {
       method: "GET"
@@ -35,6 +36,7 @@ export const addUser = user => {
       if (responseJSON.error){
         alert(responseJSON.error)
       }else{
+        console.log(responseJSON)
         dispatch({type: "ADD_USER", user:responseJSON.user})
       }
     })

@@ -38,7 +38,7 @@ export const addAccount = (data) => {
   }
 }
 
-export const fetchAccount = (credentials) => {
+export const fetchAccount = (credentials, history) => {
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/login', {
       credentials: "include",
@@ -54,8 +54,10 @@ export const fetchAccount = (credentials) => {
       if (account.error){
         alert(account.error)
       }else{
+        console.log(account)
+        dispatch(setCurrentAccount(account.user))
         dispatch({type:"FETCH_ACCOUNT", account: account.user.data})
-        dispatch(setCurrentAccount(account))
+        
       }
     })
   };

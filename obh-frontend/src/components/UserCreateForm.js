@@ -12,11 +12,11 @@ state ={
     })
   }
  handleOnSubmit= (event)=>{
-   console.log("HOS",this.props.accountId)
+   console.log("HOS",this.props.accountId, this.state.name)
    event.preventDefault()
    this.props.addUser({
     name: this.state.name,
-    account_id: parseInt(this.props.accountId)})
+    account_id: this.props.accountId})
 
    this.setState({
      name:'',
@@ -24,22 +24,22 @@ state ={
  }
 
   render(){
+    console.log(this.props)
     return(
       <div>
         <form onSubmit={this.handleOnSubmit}>
           <label>User Name:</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} required="required"/><br></br>
-          <input type="hidden" name="account_id" value={this.state.accountId} onChange={this.handleOnChange} />
           <input type="submit"/>
         </form>
       </div>
     )
   }
 }
+
 const mapStateToProps = state => {
-  console.log("Current Account Id:", state.currentAccount.data.id)
   return ({
-    accountId: state.currentAccount.data.id
+    accountId: state.accountReducer['id']
   })
 }
 

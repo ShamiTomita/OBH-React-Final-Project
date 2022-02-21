@@ -1,5 +1,5 @@
 class Api::V1::AccountsController < ApplicationController
-
+skip_before_action :verify_authenticity_token
   def create
     @account = Account.new(account_params)
     @account.password = params[:password]

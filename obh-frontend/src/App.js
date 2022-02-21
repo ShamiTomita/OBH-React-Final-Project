@@ -5,16 +5,21 @@ import {connect} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
 import LoginComponent from './components/LoginComponent'
 import SignUpComponent from './components/SignUpComponent'
+import {Route, Routes} from 'react-router-dom'
 class App extends Component {
   componentDidMount(){
+    console.log(this.props)
     this.props.currentAccount()
   }
+
   render(){
     const {is_LoggedIn, account} = this.props
   console.log("app", this.props)
   return( is_LoggedIn ?
     <>
-      <HomeContainer loggedIn={this.props.is_LoggedIn}/>
+    <Routes>
+      <Route exact path="*" element={<HomeContainer loggedIn={this.props.is_LoggedIn} account={account}/>}/>
+    </Routes>
     </>
     :
     <div>

@@ -5,12 +5,18 @@ skip_before_action :verify_authenticity_token
     if @user.valid?
       render json:{user: UserSerializer.new(@user)}, status: :created
     else
-      render json:{error: 'failed to create user'}, status:not_acceptable
+      render json:{error: 'failed to create user'}, status: :not_acceptable
     end
   end
 
   def index
-    users = User.all
+    accountid = params[:account_id].to_i
+    users = []
+    User.all.each do |user|
+      if user.account_id === accountid
+        users << user
+      end
+    end 
     render json: UserSerializer.new(users)
   end
 

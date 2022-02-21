@@ -1,4 +1,4 @@
-export default (state = null, action) => {
+const currentAccount = (state = null, action) => {
   switch (action.type) {
     case "SET_CURRENT_ACCOUNT":
     console.log("set current account", action.account)
@@ -10,3 +10,4 @@ export default (state = null, action) => {
       return state
   }
 }
+export default currentAccount

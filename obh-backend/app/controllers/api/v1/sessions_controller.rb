@@ -2,11 +2,18 @@ class Api::V1::SessionsController < ApplicationController
 skip_before_action :verify_authenticity_token
      def create
         @account = Account.find_by(username: params[:session][:username])
-        if @account && @account.authenticate(params[:session][:password])
-          session[:account_id] = @account.id
-          render json: {
-            user: AccountSerializer.new(@account)
-          }
+        if @account.email === params[:session][:email]
+          if @account && @account.authenticate(params[:session][:password])
+            session[:account_id] = @account.id
+            render json: {
+              user: AccountSerializer.new(@account)
+            }
+          else
+            render json: {
+              status: 401,
+              error: "Could not authenticate your account"
+            }
+          end
         else
           render json: {
             status: 401,

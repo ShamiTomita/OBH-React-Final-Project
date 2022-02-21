@@ -1,45 +1,47 @@
-import React, {Component} from "react"
+import React from "react"
 import { connect } from "react-redux";
 import {fetchAccount} from "../actions/fetchAccount.js"
-class LoginComponent extends Component {
-  state ={
-    username:'',
-    email:'',
-    password:''
-  }
-    handleOnChange = (event) =>{
-      this.setState({
-        [event.target.name]: event.target.value
-      })
+import { updateLoginForm } from "../actions/loginForm.js"
+import {useNavigate} from "react-router-dom"
+const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history}) => {
+
+  const  handleOnChange = (event) =>{
+    const { name, value } = event.target
+    const updatedFormInfo = {
+      ...loginFormData,
+      [name]: value
     }
-   handleOnSubmit= (event)=>{
-     console.log("HOS",this.state)
+   updateLoginForm(updatedFormInfo)
+ }
+ let navigate = useNavigate();
+  const handleOnSubmit= (event)=>{
+     console.log("HOS", loginFormData)
      event.preventDefault()
-     this.props.fetchAccount(this.state)
-     this.setState({
-       username:'',
-       email: '',
-      password:''
-     })
+     fetchAccount(loginFormData, history)
+     navigate("/")
    }
 
-    render(){
+
       return(
         <div>
-          <form onSubmit={this.handleOnSubmit}>
+          <form onSubmit={handleOnSubmit}>
             <label>Account Name:</label>
-            <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/><br></br>
+            <input type="text" name="username" value={loginFormData.username} onChange={handleOnChange}/><br></br>
             <label>Email:</label>
-            <input type="text" name="email" value={this.state.email}onChange={this.handleOnChange}/><br></br>
+            <input type="text" name="email" value={loginFormData.email}onChange={handleOnChange}/><br></br>
             <label>Password:</label>
-            <input type="text" name="password"value={this.state.password}onChange={this.handleOnChange}/><br></br>
+            <input type="text" name="password"value={loginFormData.password}onChange={handleOnChange}/><br></br>
             <input type="submit"/>
           </form>
         </div>
       )
     }
-  }
+    const mapStateToProps = state => {
+      return {
+        loginFormData: state.loginForm
+      }
+    }
 
 
 
-  export default connect(null, {fetchAccount})(LoginComponent)
+  export default(connect(mapStateToProps, {updateLoginForm, fetchAccount})(LoginComponent))

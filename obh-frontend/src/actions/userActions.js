@@ -36,7 +36,7 @@ export const addUser = user => {
       if (responseJSON.error){
         alert(responseJSON.error)
       }else{
-        console.log(responseJSON)
+        console.log(responseJSON.user.data)
         dispatch({type: "ADD_USER", user:responseJSON.user})
       }
     })

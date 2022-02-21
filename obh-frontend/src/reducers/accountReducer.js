@@ -3,9 +3,11 @@ const accountReducer = (state = {accounts:[], id: null, username: '', is_LoggedI
 
     case "ADD_ACCOUNT":
     console.log(action.account)
+
       return{
         ...state,
-        accounts: action.account
+        accounts: action.account,
+        id: action.account.data['id'],
       }
     case "FETCH_ACCOUNT":
     return{

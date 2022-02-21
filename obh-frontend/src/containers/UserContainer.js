@@ -4,13 +4,6 @@ import {fetchUsers} from '../actions/userActions'
 import { connect } from "react-redux";
 import UserSelect from "../components/UserSelect.js"
 class UserContainer extends Component{
-state = {
-  users: []
-}
-componentDidMount(){
-  console.log("cDM", this.props);
-}
-
 
   render(){
     console.log("userstate", this.props)

@@ -39,7 +39,7 @@ state ={
 
 const mapStateToProps = state => {
   return ({
-    accountId: state.accountReducer['id']
+    accountId: state.currentAccount['data']['id']
   })
 }
 

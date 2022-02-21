@@ -1,24 +1,25 @@
-import React, {Component} from "react"
+import React from "react"
 //import {setCurrentUser} from '../actions/userActions'
 import {connect} from "react-redux"
-class UserSelect extends Component{
 
-  render(){
-   const profiles = this.props.users.map((user)=>{
-    return <div key={user.id}>Name: {user.attributes.name}</div>
-  })
-    console.log("userselect",this.props)
-    return(
+const UserSelect =(props)=> {
+console.log(props.users.users)
+
+
+    return(!props.loaded?
+      <div></div>
+      :
       <>
-      {profiles}
+      {props.users.map(user=> <div key={user.id}>Name: {user.attributes.name}</div>)}
       </>
+
     )
   }
 
-}
 const mapStateToProps = state => {
   return({
-    users: state.userReducer.users
+    users: state.userReducer.users,
+    loaded: state.userReducer.loaded
   })
 }
 

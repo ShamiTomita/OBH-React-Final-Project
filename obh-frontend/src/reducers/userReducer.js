@@ -1,16 +1,17 @@
 const userReducer = (state = {users:[], current_user: null, loaded:false},  action)=>{
   switch(action.type){
     case "ADD_USER":
-    console.log("Adding User:", action.user)
+    console.log("Adding User:", action)
+
     return{
       ...state,
-      users: action.user
+      users: [...state.users, action.user.data]
     }
     case "LOADING_USERS":
     return{
       ...state,
       users:[...state.users],
-      loading: false,
+      loaded: false,
     }
     case "FETCH_USERS":
     console.log(action.users)

@@ -27,6 +27,12 @@ const userReducer = (state = {users:[], current_user: null, loaded:false},  acti
         ...state,
         current_user: action.user
       }
+    case "CLEAR_CURRENT_USER":
+    console.log("CLEARING USER NOW")
+      return{
+        ...state,
+        current_user: null
+      }
     default:
     return state
   }

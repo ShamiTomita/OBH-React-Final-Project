@@ -5,6 +5,12 @@ export const setCurrentUser = (user) => {
     user
   }
 }
+export const clearCurrentUser = () => {
+  console.log("hit user clear action")
+  return{
+    type: "CLEAR_CURRENT_USER",
+  }
+}
 
 export const fetchUsers = (account_id) =>{
 

@@ -4,7 +4,7 @@ export const setCurrentAccount = account => {
     account
   }
 }
-export const clearCurrentUser = () => {
+export const clearCurrentAccount = () => {
   console.log("clearing")
   return {
     type: "CLEAR_CURRENT_ACCOUNT"
@@ -57,7 +57,7 @@ export const fetchAccount = (credentials, history) => {
         console.log(account)
         dispatch(setCurrentAccount(account.user))
         dispatch({type:"FETCH_ACCOUNT", account: account.user.data})
-        
+
       }
     })
   };
@@ -87,7 +87,7 @@ export const currentAccount = () => {
 
 export const logout = event => {
   return dispatch => {
-    dispatch(clearCurrentUser())
+    dispatch(clearCurrentAccount())
     return fetch('http://localhost:3000/api/v1/logout', {
       credentials: "include",
       method: "DELETE"

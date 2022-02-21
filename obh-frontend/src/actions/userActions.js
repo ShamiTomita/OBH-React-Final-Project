@@ -1,5 +1,5 @@
 export const setCurrentUser = (user) => {
-  console.log("SCU")
+  console.log("SCU", user)
   return{
     type: "SET_CURRENT_USER",
     user

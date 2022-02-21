@@ -24,6 +24,7 @@ const userReducer = (state = {users:[], current_user: null, loaded:false},  acti
     case "SET_CURRENT_USER":
     console.log("Setting Current User:", action)
       return{
+        ...state,
         current_user: action.user
       }
     default:

@@ -1,11 +1,11 @@
 import React, {Component} from "react"
 import './App.css';
-import HomeContainer from './containers/HomeContainer.js'
+import UserSelectContainer from './containers/UserSelectContainer.js'
 import {connect} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
 import LoginComponent from './components/LoginComponent'
 import SignUpComponent from './components/SignUpComponent'
-import {Route, Routes} from 'react-router-dom'
+import OBHContainer from './containers/OBHContainer'
 class App extends Component {
   componentDidMount(){
     console.log(this.props)
@@ -17,9 +17,9 @@ class App extends Component {
   console.log("app", this.props)
   return( is_LoggedIn ?
     <>
-    <Routes>
-      <Route exact path="*" element={<HomeContainer loggedIn={this.props.is_LoggedIn} account={account}/>}/>
-    </Routes>
+
+    <UserSelectContainer loggedIn={this.props.is_LoggedIn} account={account}/>
+
     </>
     :
     <div>

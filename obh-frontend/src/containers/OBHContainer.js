@@ -13,13 +13,12 @@ class OBHContainer extends Component {
       <>
       <NavBar />
         <Routes>
-          <Route path="/content" element={<ContentContainer />}/>
           <Route path='/logout' element={<LogoutComponent/>}/>
         </Routes>
 
         <div>
           <h1>WELCOME BACK {this.props.currentUser['attributes']['name']}!</h1>
-          <h1>Hi</h1>
+          <ContentContainer/>
         </div>
       </>
     )

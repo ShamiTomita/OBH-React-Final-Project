@@ -5,6 +5,8 @@ import App from './App';
 import { Provider } from "react-redux"
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from "redux-thunk"
+import 'bootstrap/dist/css/bootstrap.css';
+import Carousel from 'react-bootstrap/Carousel';
 import combineReducers from './reducers/index.js'
 import {
   BrowserRouter as Router,

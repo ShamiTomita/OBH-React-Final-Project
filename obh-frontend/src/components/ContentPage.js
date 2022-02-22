@@ -15,9 +15,11 @@ class ContentPage extends Component {
     })
     return(
 
-      <div>
+      <div className="container-fluid contentPage">
       <h2>MOVIES & SHOWS</h2>
-      {content}
+        <div className="row">
+            {content}
+        </div>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import './App.css';
 import UserSelectContainer from './containers/UserSelectContainer.js'
 import {connect} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
+import {fetchContent} from "./actions/contentActions.js"
 import LoginComponent from './components/LoginComponent'
 import SignUpComponent from './components/SignUpComponent'
 import OBHContainer from './containers/OBHContainer'
@@ -10,6 +11,7 @@ class App extends Component {
   componentDidMount(){
     console.log(this.props)
     this.props.currentAccount()
+    this.props.fetchContent()
   }
 
   render(){
@@ -39,4 +41,4 @@ const mapStateToProps = state => {
     account: state.currentAccount
   })
 }
-export default connect(mapStateToProps,{currentAccount})(App)
+export default connect(mapStateToProps,{currentAccount, fetchContent})(App)

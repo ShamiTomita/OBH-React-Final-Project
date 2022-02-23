@@ -5,6 +5,9 @@ import {useNavigate} from "react-router-dom"
 import {setCurrentShow, clearCurrentShow} from '../actions/contentActions'
 import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 const ContentCarousel = (props) => {
 
 
@@ -27,7 +30,9 @@ const ContentCarousel = (props) => {
    }
 
   return (
-
+    <Container width="25%">
+      <Row className="justify-content-sm-center">
+        <Col md={{ span: 6, offset: 0 }}>
     <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
         <img
@@ -36,6 +41,7 @@ const ContentCarousel = (props) => {
           alt="First slide"
 
         />
+
         <Carousel.Caption>
           <p>{props.rC1.attributes.plot}</p>
           <Button onClick={handleRedirect} value={props.rC1.id} variant="outline-secondary">{props.rC1.attributes.title}</Button>
@@ -68,6 +74,9 @@ const ContentCarousel = (props) => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </Col>
+    </Row>
+  </Container>
   );
 }
 

@@ -1,6 +1,7 @@
 class  Api::V1::FavoritedContentsController < ApplicationController
-
+skip_before_action :verify_authenticity_token
   def create
+
     favorited_content = FavoritedContent.create(favorited_content_params)
     if favorited_content.save
       render json:favorited_content, status: :accepted
@@ -10,8 +11,19 @@ class  Api::V1::FavoritedContentsController < ApplicationController
   end
 
   def index
-    favorites = FavoritedContent.all
-    render json: FavoritedContentSerializer.new(favorites)
+    if !!params[:user_id]
+      userid = params[:user_id].to_i
+      faves = []
+      FavoritedContent.all.each do |fave|
+        if fave.user_id === userid
+          faves << fave
+        end
+      end
+      render json: FavoritedContentSerializer.new(faves)
+    else
+      faves = FavoritedContent.all
+      render json: UserSerializer.new(faves)
+    end
   end
 
   def show
@@ -19,6 +31,11 @@ class  Api::V1::FavoritedContentsController < ApplicationController
     favorite = FavoritedContent.find_by(id: params[:id])
     render json: FavoritedContentSerializer.new(favorite)
   end
+
+  def destroy
+    @fave = FavoritedContent.find(params[:id])
+    @fave.destroy
+  end 
 
   private
   def set_user

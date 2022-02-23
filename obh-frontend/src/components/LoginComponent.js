@@ -18,7 +18,7 @@ const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history})
      console.log("HOS", loginFormData)
      event.preventDefault()
      fetchAccount(loginFormData, history)
-     navigate("/")
+     navigate("/users")
    }
 
 

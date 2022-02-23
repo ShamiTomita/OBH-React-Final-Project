@@ -4,7 +4,8 @@ import { logout } from "../actions/fetchAccount.js"
 import {resetLoginForm} from "../actions/loginForm.js"
 import {useNavigate} from "react-router-dom"
 import {clearCurrentUser} from "../actions/userActions"
-const Logout = ({ logout, clearCurrentUser, resetLoginForm}) => {
+import {clearCurrentShow} from "../actions/contentActions"
+const Logout = ({ logout, clearCurrentUser, resetLoginForm, clearCurrentShow}) => {
 
   let navigate = useNavigate();
   return (
@@ -12,6 +13,7 @@ const Logout = ({ logout, clearCurrentUser, resetLoginForm}) => {
         event.preventDefault()
         resetLoginForm()
         clearCurrentUser()
+        clearCurrentShow()
         logout()
         navigate("/")
       }
@@ -21,4 +23,4 @@ const Logout = ({ logout, clearCurrentUser, resetLoginForm}) => {
   )
 }
 
-export default connect(null, { logout, resetLoginForm, clearCurrentUser } )(Logout)
+export default connect(null, { logout, resetLoginForm, clearCurrentUser, clearCurrentShow } )(Logout)

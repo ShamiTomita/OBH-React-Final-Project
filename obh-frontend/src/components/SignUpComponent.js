@@ -1,45 +1,47 @@
-import React, {Component} from "react"
+import React from "react"
 import { connect } from "react-redux";
 import {addAccount} from "../actions/fetchAccount.js"
-class SignUpComponent extends Component {
+import { updateSignupForm } from "../actions/signupForm.js"
+import {useNavigate} from "react-router-dom"
+const SignUpComponent = ({ signupFormData, updateSignupForm, addAccount}) => {
 
-state ={
-  username:'',
-  email:'',
-  password:''
-}
-  handleOnChange = (event) =>{
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+const  handleOnChange = (event) =>{
+  const { name, value } = event.target
+  const updatedFormInfo = {
+    ...signupFormData,
+    [name]: value
   }
- handleOnSubmit= (event)=>{
-   console.log("HOS",this.state)
+ updateSignupForm(updatedFormInfo)
+}
+
+let navigate = useNavigate();
+
+const handleOnSubmit= (event)=>{
+   console.log("HOS", signupFormData)
    event.preventDefault()
-   this.props.addAccount(this.state)
-   this.setState({
-     username:'',
-     email: '',
-    password:''
-   })
+   addAccount(signupFormData)
+   navigate("/users")
  }
 
-  render(){
     return(
       <div>
-        <form onSubmit={this.handleOnSubmit}>
+        <form onSubmit={handleOnSubmit}>
           <label>Account Name:</label>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/><br></br>
+          <input type="text" name="username" value={signupFormData.username} onChange={handleOnChange}/><br></br>
           <label>Email:</label>
-          <input type="text" name="email" value={this.state.email}onChange={this.handleOnChange}/><br></br>
+          <input type="text" name="email" value={signupFormData.email} onChange={handleOnChange}/><br></br>
           <label>Password:</label>
-          <input type="text" name="password"value={this.state.password}onChange={this.handleOnChange}/><br></br>
+          <input type="text" name="password"value={signupFormData.password} onChange={handleOnChange}/><br></br>
           <input type="submit"/>
         </form>
       </div>
     )
   }
+
+const mapStateToProps = state => {
+  return {
+    signupFormData: state.signupForm
+  }
 }
 
-
-export default connect(null, {addAccount})(SignUpComponent)
+export default connect(mapStateToProps, {updateSignupForm, addAccount})(SignUpComponent)

@@ -7,6 +7,11 @@ import {fetchContent} from "./actions/contentActions.js"
 import LoginComponent from './components/LoginComponent'
 import SignUpComponent from './components/SignUpComponent'
 import OBHContainer from './containers/OBHContainer'
+import {Route, Routes} from 'react-router-dom'
+import ShowPage from './components/ShowPage'
+import LogoutComponent from './components/LogoutComponent.js'
+
+import NavBar from './components/NavBar';
 class App extends Component {
   componentDidMount(){
     console.log(this.props)
@@ -15,12 +20,20 @@ class App extends Component {
   }
 
   render(){
-    const {is_LoggedIn, account} = this.props
+    const {is_LoggedIn, account, currentShow} = this.props
   console.log("app", this.props)
+
+    const show = currentShow
   return( is_LoggedIn ?
     <>
+    <NavBar />
+      <Routes>
+        {currentShow? <Route path={`/show/${show.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
+        <Route path='/home' element={<OBHContainer/>}/>
+        <Route path='/logout' element={<LogoutComponent/>}/>
+        <Route path='/users' element={<UserSelectContainer loggedIn={this.props.is_LoggedIn} account={account}/>}/>
+      </Routes>
 
-    <UserSelectContainer loggedIn={this.props.is_LoggedIn} account={account}/>
 
     </>
     :
@@ -38,7 +51,9 @@ const mapStateToProps = state => {
   console.log("State", state)
   return ({
     is_LoggedIn: !!state.currentAccount,
-    account: state.currentAccount
+    account: state.currentAccount,
+    currentShow: state.currentShow,
+    currentUser: state.userReducer.currentUser
   })
 }
 export default connect(mapStateToProps,{currentAccount, fetchContent})(App)

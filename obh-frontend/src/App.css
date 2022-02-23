@@ -38,10 +38,7 @@
 
 }
 
-body {
-	background: #141414;
-	color: #ffffff;
-}
+
 .carousel-item, .carousel-item img {
     height: 400px;
   width:100%;
@@ -49,4 +46,27 @@ body {
 .contentPage > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
+}
+
+.content-card:hover {
+  background-color: pink
+}
+.img-button {
+   /*
+     All of the base styles have
+     moved to the “CSS” tab above.
+   */
+   transition: transform 250ms;
+ }
+
+ .img-button:hover {
+   transform: translateY(-10px);
+ }
+
+ .content-card-title:hover{
+   font-weight: bolder;
+ }
+.show-page{
+  height: 600px;
+  background-color: "#6db8ed";
 }

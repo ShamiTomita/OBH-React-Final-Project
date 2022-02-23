@@ -11,3 +11,16 @@ export const fetchContent = () => {
       });
   };
 };
+
+export const setCurrentShow = (show) => {
+  console.log(show)
+    return{
+      type: "SET_CURRENT_SHOW",
+      show
+    }
+  }
+export const clearCurrentShow = ()=>{
+  return{
+    type: "CLEAR_CURRENT_SHOW"
+  }
+}

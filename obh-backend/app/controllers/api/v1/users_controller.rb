@@ -10,14 +10,19 @@ skip_before_action :verify_authenticity_token
   end
 
   def index
-    accountid = params[:account_id].to_i
-    users = []
-    User.all.each do |user|
-      if user.account_id === accountid
-        users << user
+    if !!params[:account_id]
+      accountid = params[:account_id].to_i
+      users = []
+      User.all.each do |user|
+        if user.account_id === accountid
+          users << user
+        end
       end
-    end 
-    render json: UserSerializer.new(users)
+      render json: UserSerializer.new(users)
+    else
+      users = User.all
+      render json: UserSerializer.new(users)
+    end
   end
 
   def show

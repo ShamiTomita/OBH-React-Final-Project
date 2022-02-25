@@ -4,9 +4,9 @@ skip_before_action :verify_authenticity_token
 
     favorited_content = FavoritedContent.create(favorited_content_params)
     if favorited_content.save
-      render json:favorited_content, status: :accepted
+      render json:{favorited_content: FavoritedContentSerializer.new(favorited_content)}, status: :created
     else
-      render json: {erros: favorited_content.errors.full_messages}, status: :unprocessible_entity
+      render json: {erros: favorited_content.errors.full_messages}, status: :not_acceptable
     end
   end
 
@@ -22,20 +22,21 @@ skip_before_action :verify_authenticity_token
       render json: FavoritedContentSerializer.new(faves)
     else
       faves = FavoritedContent.all
-      render json: UserSerializer.new(faves)
+      render json: FavoritedContentSerializer.new(faves)
     end
   end
 
   def show
-    user = User.find(user_id: params[:user_id])
     favorite = FavoritedContent.find_by(id: params[:id])
     render json: FavoritedContentSerializer.new(favorite)
   end
 
   def destroy
     @fave = FavoritedContent.find(params[:id])
-    @fave.destroy
-  end 
+    if @fave.destroy
+      render json:  { data: "Fave successfully destroyed" }, status: :ok
+    end 
+  end
 
   private
   def set_user

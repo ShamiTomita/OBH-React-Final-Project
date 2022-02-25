@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :contents
+      resources :favorited_contents
       resources :users do
         resources :favorited_contents
       end

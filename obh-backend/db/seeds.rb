@@ -1,4 +1,4 @@
-seed_urls = [
+seeds = [
 "https://www.omdbapi.com/?t=princess-mononoke&apikey=f1962a9",
 
 "https://www.omdbapi.com/?t=my-neighbor-totoro&apikey=f1962a9",
@@ -37,10 +37,28 @@ seed_urls = [
 
 "https://www.omdbapi.com/?t=harlots-housewives&apikey=f1962a9",
 
-"https://www.omdbapi.com/?t=hidden-killers&apikey=f1962a9"
-
+"https://www.omdbapi.com/?t=hidden-killers&apikey=f1962a9",
+"https://www.omdbapi.com/?t=pokemon&apikey=f1962a9",
+"https://www.omdbapi.com/?t=Am%C3%A9lie&apikey=f1962a9",
+"https://www.omdbapi.com/?t=duke-of-burgundy&apikey=f1962a9",
+"https://www.omdbapi.com/?t=green-knight&apikey=f1962a9",
+"https://www.omdbapi.com/?t=miss-pettigrew&apikey=f1962a9",
+"https://omdbapi.com/?t=veep&apikey=f1962a9",
+"https://omdbapi.com/?t=new-adventures-of-old&apikey=f1962a9",
+"https://omdbapi.com/?t=web-therapy&apikey=f1962a9",
+"https://omdbapi.com/?t=tsars&apikey=f1962a9",
+"https://omdbapi.com/?t=tampopo&apikey=f1962a9",
+"https://omdbapi.com/?t=y-tu&apikey=f1962a9",
+"https://omdbapi.com/?t=heat-of-the-sun&apikey=f1962a9",
+"https://omdbapi.com/?t=Ascension&y=2021&apikey=f1962a9",
+"https://omdbapi.com/?t=moonrise-kingdom&apikey=f1962a9",
+"https://omdbapi.com/?t=fantastic-mr&apikey=f1962a9",
+"https://omdbapi.com/?t=Bacurau&apikey=f1962a9",
+"https://omdbapi.com/?t=antoinette&y=2006&apikey=f1962a9",
+"https://omdbapi.com/?t=plantagenets&apikey=f1962a9",
+"https://omdbapi.com/?t=six-wives-with-lucy&apikey=f1962a9"
 ]
-
+seed_urls = seeds.shuffle
 def get_content(seed_urls)
   seed_urls.each do |url|
     response = RestClient.get(url)

@@ -43,7 +43,7 @@ const ContentCarousel = (props) => {
         />
 
         <Carousel.Caption>
-          <p>{props.rC1.attributes.plot}</p>
+
           <Button onClick={handleRedirect} value={props.rC1.id} variant="outline-secondary">{props.rC1.attributes.title}</Button>
         </Carousel.Caption>
       </Carousel.Item>
@@ -56,7 +56,7 @@ const ContentCarousel = (props) => {
         />
 
         <Carousel.Caption>
-        <p>{props.rC2.attributes.plot}</p>
+
         <Button onClick={handleRedirect} value={props.rC2.id} variant="outline-secondary">{props.rC2.attributes.title}</Button>
 
         </Carousel.Caption>
@@ -69,7 +69,7 @@ const ContentCarousel = (props) => {
         />
 
         <Carousel.Caption>
-        <p>{props.rC3.attributes.plot}</p>
+      
         <Button onClick={handleRedirect} value={props.rC3.id} variant="outline-secondary">{props.rC3.attributes.title}</Button>
         </Carousel.Caption>
       </Carousel.Item>

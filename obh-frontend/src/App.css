@@ -40,13 +40,19 @@
 
 
 .carousel-item, .carousel-item img {
-    height: 400px;
+  height: 300px;
   width:100%;
 }
 .contentPage > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
 }
+
+.favoritesPage > .row {
+	overflow-x: auto;
+	flex-wrap: nowrap;
+}
+
 
 .content-card:hover {
   background-color: pink

@@ -3,7 +3,11 @@ import ContentCarousel from '../components/ContentCarousel'
 import ContentPage from '../components/ContentPage.js'
 import FavoritesPage from '../components/FavoritesPage.js'
 import {fetchFaves} from '../actions/favoriteActions'
+import {setCurrentShow, clearCurrentShow} from '../actions/contentActions'
 import { connect } from "react-redux";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 class ContentContainer extends Component{
 state = {
   content: [],
@@ -27,9 +31,15 @@ state = {
 
     return(
       <div>
-          <ContentCarousel media={this.props.media} rC1={randomArray[0]} rC2={randomArray[1]} rC3={randomArray[2]}/>
-          <ContentPage media={this.props.media}/>
-          {!!this.props.faves ? <FavoritesPage faves={this.props.faves} media={this.props.media}/> : <>hi</>}
+      <Container>
+
+          <ContentCarousel setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} media={this.props.media} rC1={randomArray[0]} rC2={randomArray[1]} rC3={randomArray[2]}/>
+
+        </Container>
+          <ContentPage className="content-page" setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} media={this.props.media}/>
+
+          {!!this.props.faves ? <FavoritesPage setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} faves={this.props.faves} media={this.props.media}/> : <>hi</>}
+
       </div>
     )
   }
@@ -46,4 +56,4 @@ const mSTP = (state) => {
 }
 
 
-export default connect(mSTP, {fetchFaves})(ContentContainer)
+export default connect(mSTP, {fetchFaves, setCurrentShow, clearCurrentShow})(ContentContainer)

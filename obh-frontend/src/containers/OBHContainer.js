@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import {clearCurrentShow} from '../actions/contentActions'
 import ContentContainer from '../containers/ContentContainer.js';
 import UserSelectContainer from '../containers/UserSelectContainer.js'
+import Container from 'react-bootstrap/Container'
 class OBHContainer extends Component {
 
   componentDidMount(){
@@ -14,13 +15,11 @@ class OBHContainer extends Component {
 
     return(this.props.currentUser ?
       <>
-        <div>
-          <h3>search</h3>
-        </div>
-        <div>
-          <h1>{this.props.currentUser['attributes']['name']}!</h1>
+
+        <div className="OBH-Content">
           <ContentContainer/>
         </div>
+  
       </>
       :
       <>
@@ -34,7 +33,7 @@ const mapStateToProps = state => {
   return({
     account: state.currentAccount,
     currentUser: state.userReducer.current_user,
-    
+
   })
 }
 

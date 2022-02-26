@@ -1,30 +1,41 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button'
+import {connect} from 'react-redux'
 
-
-const NavBar = () => {
+const NavBar = (props) => {
+  const {currentUser} = props
+  console.log("nav bar talking", props)
   return (
-    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
+    <>
+    <div style={{ borderBottom: '2px solid #4d4dff', background:'#ccccff', paddingBottom: '10px', paddingLeft: '10px', paddingTop:'10px' }}>
       <NavLink
         style={{ marginRight: '10px' }}
         to="/home"
       >
-        OBH
+        <Button className="nav-button">OBH</Button>
       </NavLink>
       <NavLink
         style={{ marginRight: '10px' }}
         to="/users"
       >
-        Users
+        <Button className="nav-button">Users</Button>
       </NavLink>
       <NavLink
         style={{ marginRight: '10px' }}
         to="/logout"
       >
-        Logout
+        <Button className="nav-button">Logout</Button>
       </NavLink>
+      {props.currentUser? <button className="user-name"> Hi {props.currentUser.attributes.name}</button> : <button className="user-name">Please Select A User</button>}
     </div>
+    </>
   );
 }
+const mapStateToProps = state=>{
+  return({
+    currentUser: state.userReducer.current_user
+  })
+}
 
-export default NavBar;
+export default connect(mapStateToProps)(NavBar);

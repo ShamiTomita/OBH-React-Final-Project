@@ -31,6 +31,12 @@ skip_before_action :verify_authenticity_token
     render json: UserSerializer.new(user, options)
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      render json:  { data: "User successfully destroyed" }, status: :ok
+    end
+  end
 
 
   private

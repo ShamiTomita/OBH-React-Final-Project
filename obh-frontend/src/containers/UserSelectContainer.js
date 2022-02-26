@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 class UserSelectContainer extends Component{
 
   componentDidMount(){
+    debugger
     console.log(this.props)
     let id = this.props.account['data']['id']
     console.log("ID:", id)

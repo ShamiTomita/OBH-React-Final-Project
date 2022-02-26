@@ -1,6 +1,6 @@
 import React from 'react';
 import UserContainer from '../containers/UserContainer.js'
-import { Link } from 'react-router-dom'
+//Stateless #1
 
 
 const Home = () => (

@@ -10,8 +10,11 @@ import OBHContainer from './containers/OBHContainer'
 import {Route, Routes} from 'react-router-dom'
 import ShowPage from './components/ShowPage'
 import LogoutComponent from './components/LogoutComponent.js'
-
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import NavBar from './components/NavBar';
+
 class App extends Component {
   componentDidMount(){
     console.log(this.props)
@@ -38,11 +41,25 @@ class App extends Component {
     </>
     :
     <div>
+      <Container>
+      <Row>
+      <Col>
       <h1>Please Login or SignUp</h1>
       <h3>LOGIN</h3>
+      <br></br>
       <LoginComponent/>
+      <br></br>
+      </Col>
+      </Row>
+      <Row>
+      <Col>
       <h3>SIGNUP</h3>
+      <br></br>
       <SignUpComponent/>
+      <br></br>
+      </Col>
+      </Row>
+      </Container>
     </div>
     );
   }

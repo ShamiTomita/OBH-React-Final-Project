@@ -3,7 +3,12 @@ import BackButton from "./BackButton"
 import FavoriteButton from './FavoriteButton'
 import UnfavoriteButton from './UnfavoriteButton'
 import {connect} from 'react-redux'
-import {addFave, deleteFave, setCurrentFave} from '../actions/favoriteActions'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import ShowContent from './ShowContent'
+import {clearCurrentShow} from '../actions/contentActions'
+import {addFave, deleteFave, setCurrentFave, clearCurrentFave} from '../actions/favoriteActions'
 const ShowPage = (props) => {
 
   console.log(props.faves)
@@ -23,18 +28,20 @@ const ShowPage = (props) => {
   const {currentFave} = props
 
   return(
+    <div className="show-page">
+    <>
+    <br></br>
+    <BackButton clearCurrentShow={props.clearCurrentShow} clearCurrentFave={props.clearCurrentFave}/>
+    <Container className="show-page-card">
 
     <>
-    <div className="show-page">
-    <BackButton/>
-      <h1>{props.show.attributes.title}</h1>
-      <img alt=""src={props.show.attributes.poster} height="100" width="100"/><br></br>
-      {!currentFave ? <FavoriteButton currentUserId={props.currentUserId} show={props.show} faves={props.faves} addFave={props.addFave} deleteFave={props.deleteFave} /> : <UnfavoriteButton faveId={props.currentFaveId} currentUserId={props.currentUserId} show={props.show}/>}
-      <p>{props.show.attributes.plot}</p>
-      <p>Directed By:{props.show.attributes.director} | Written By:{props.show.attributes.writer}</p>
-      <p>{props.show.attributes.genre}</p>
-    </div>
+    <ShowContent show={props.show}/>
     </>
+        {!currentFave ? <FavoriteButton addFave={props.addFave} currentUserId={props.currentUserId} show={props.show} faves={props.faves}/> : <UnfavoriteButton deleteFave={props.deleteFave} fetchFaves={props.deleteFave} faveId={props.currentFaveId} currentUserId={props.currentUserId} show={props.show}/>}
+
+    </Container>
+    </>
+    </div>
   )
 
 
@@ -49,4 +56,4 @@ const mapStateToProps = state => {
     currentFaveId: state.favoriteReducer.currentFaveId
   })
 }
-export default connect(mapStateToProps, {addFave, deleteFave, setCurrentFave})(ShowPage)
+export default connect(mapStateToProps, {addFave, deleteFave, setCurrentFave, clearCurrentFave, clearCurrentShow})(ShowPage)

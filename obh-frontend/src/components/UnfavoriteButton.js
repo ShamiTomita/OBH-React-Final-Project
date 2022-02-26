@@ -1,7 +1,5 @@
 import React from 'react'
-import {deleteFave, fetchFaves} from '../actions/favoriteActions'
 import Button from 'react-bootstrap/Button'
-import {connect} from 'react-redux'
 const UnfavoriteButton = (props) => {
 
   console.log(props.faveId)
@@ -19,4 +17,4 @@ const UnfavoriteButton = (props) => {
 
 
 
-export default connect(null, {deleteFave, fetchFaves})(UnfavoriteButton)
+export default (UnfavoriteButton)

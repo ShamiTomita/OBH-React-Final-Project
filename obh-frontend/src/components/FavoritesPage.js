@@ -1,10 +1,8 @@
 import React from "react"
 import Button from 'react-bootstrap/Button'
-import {setCurrentShow, clearCurrentShow} from '../actions/contentActions'
-import {connect} from 'react-redux'
 import {useNavigate} from "react-router-dom"
 const FavoritesPage =(props)=>{
-
+//stateless #4
  let navigate = useNavigate();
 const handleRedirect = (event)=>{
   props.clearCurrentShow()
@@ -15,7 +13,7 @@ const handleRedirect = (event)=>{
   props.setCurrentShow(show)
   navigate(`/show/${show.id}`)
  }
- 
+
  const matchedFaves = props.media.filter((show) => props.faves.some(fave => parseInt(show.id) === fave.attributes.content_id ))
  const content = matchedFaves.map((content)=>{
    return <div className="content-card" key={content.id}>
@@ -28,7 +26,7 @@ const handleRedirect = (event)=>{
     })
     return(
       <div className="container-fluid favoritesPage">
-      <h2>Your Favorites</h2>
+      <h2 className="movies-shows">Your Favorites</h2>
         <div className="row">
             {content}
         </div>
@@ -38,4 +36,4 @@ const handleRedirect = (event)=>{
 
 
 
-export default connect(null, {setCurrentShow, clearCurrentShow})(FavoritesPage)
+export default (FavoritesPage)

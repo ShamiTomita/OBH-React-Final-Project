@@ -1,7 +1,7 @@
 const userReducer = (state = {users:[], current_user: null, loaded:false},  action)=>{
   switch(action.type){
     case "ADD_USER":
-    
+
     console.log("Adding User:", action)
     return{
       ...state,
@@ -20,6 +20,13 @@ const userReducer = (state = {users:[], current_user: null, loaded:false},  acti
       users: action.users,
       loaded:true
     }
+    case "DELETE_USER":
+      debugger
+      console.log("Deleting from State", action.user)
+
+
+      return {users: state.users.filter(user=> user.id !== action.user)}
+
 
     case "SET_CURRENT_USER":
     console.log("Setting Current User:", action)

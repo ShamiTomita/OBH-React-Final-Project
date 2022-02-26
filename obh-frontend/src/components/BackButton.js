@@ -1,15 +1,13 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-import {clearCurrentFave} from '../actions/favoriteActions'
-import {clearCurrentShow} from '../actions/contentActions'
 import Button from 'react-bootstrap/Button'
-import {connect} from 'react-redux'
-const BackButton = ({clearCurrentShow, clearCurrentFave}) => {
+//Stateless #3
+const BackButton = (props) => {
   let navigate = useNavigate();
 
   const handleRedirect = (event)=>{
-    clearCurrentShow()
-    clearCurrentFave()
+    props.clearCurrentShow()
+    props.clearCurrentFave()
     navigate(`/home`)
    }
   return(
@@ -17,4 +15,4 @@ const BackButton = ({clearCurrentShow, clearCurrentFave}) => {
   )
 }
 
-export default connect(null, {clearCurrentShow, clearCurrentFave})(BackButton)
+export default (BackButton)

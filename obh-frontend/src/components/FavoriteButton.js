@@ -1,7 +1,5 @@
 import React from 'react'
-import {addFave, fetchFaves} from '../actions/favoriteActions'
 import Button from 'react-bootstrap/Button'
-import {connect} from 'react-redux'
 const FavoriteButton = (props) => {
 
 
@@ -11,7 +9,7 @@ const FavoriteButton = (props) => {
       content_id: props.show.id,
       user_id: props.currentUserId
     }
-      
+
       console.log(favorited_content)
       props.addFave(favorited_content)
    }
@@ -24,4 +22,4 @@ const FavoriteButton = (props) => {
 
 
 
-export default connect(null, {addFave, fetchFaves})(FavoriteButton)
+export default (FavoriteButton)

@@ -1,24 +1,43 @@
 import React, {Component} from "react"
 import UserCreateForm from '../components/UserCreateForm'
-import {fetchUsers} from '../actions/userActions'
-import { connect } from "react-redux";
 import UserSelect from "../components/UserSelect.js"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 class UserContainer extends Component{
 
   render(){
     console.log("userstate", this.props)
     let{loaded} = this.props
     return( loaded?
-      <>
+      <div className="user-container">
+      <Container>
+        <Row>
+        <Col>
       <h2>Please Create a User Profile</h2>
       <UserCreateForm/>
-      </>
+        </Col>
+        </Row>
+      </Container>
+      </div>
       :
-      <>
-      <h2>Please Select/Or Creare a User Profile</h2>
+      <div className="user-container">
+      <Container>
+      <h2>Please Select a User Profile</h2>
+      <Row>
+        <Col>
       <UserSelect/>
+        </Col>
+      </Row>
+        <br></br>
+      <h2>Or Create Another Profile</h2>
+      <Row>
+      <Col>
       <UserCreateForm/>
-      </>
+        </Col>
+        </Row>
+      </Container>
+      </div>
     )
   }
 }

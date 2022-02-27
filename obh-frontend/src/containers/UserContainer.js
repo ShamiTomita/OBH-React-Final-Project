@@ -8,8 +8,8 @@ class UserContainer extends Component{
 
   render(){
     console.log("userstate", this.props)
-    let{loaded} = this.props
-    return( loaded?
+    let{users} = this.props
+    return( users.length < 1?
       <div className="user-container">
       <Container>
         <Row>

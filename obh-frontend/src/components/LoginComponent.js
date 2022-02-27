@@ -26,11 +26,11 @@ const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history})
         <div>
           <form onSubmit={handleOnSubmit}>
             <label>Account Name:</label>
-            <input type="text" name="username" value={loginFormData.username} onChange={handleOnChange}/><br></br>
+            <input autocomplete='off' type="text" name="username" value={loginFormData.username} onChange={handleOnChange}/><br></br>
             <label>Email:</label>
-            <input type="text" name="email" value={loginFormData.email}onChange={handleOnChange}/><br></br>
+            <input autocomplete='off' type="text" name="email" value={loginFormData.email}onChange={handleOnChange}/><br></br>
             <label>Password:</label>
-            <input type="text" name="password"value={loginFormData.password}onChange={handleOnChange}/><br></br>
+            <input autocomplete='off' type="text" name="password"value={loginFormData.password}onChange={handleOnChange}/><br></br>
             <input type="submit"/>
           </form>
         </div>

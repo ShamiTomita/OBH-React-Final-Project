@@ -21,6 +21,12 @@ const NavBar = (props) => {
       >
         <Button className="nav-button">Users</Button>
       </NavLink>
+      {currentUser? <NavLink
+        style={{ marginRight: '10px' }}
+        to="/browse"
+      >
+        <Button className="nav-button">Browse</Button>
+      </NavLink> : <></>}
       <NavLink
         style={{ marginRight: '10px' }}
         to="/logout"

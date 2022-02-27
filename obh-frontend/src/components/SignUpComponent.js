@@ -27,11 +27,11 @@ const handleOnSubmit= (event)=>{
       <div>
         <form onSubmit={handleOnSubmit}>
           <label>Account Name:</label>
-          <input type="text" name="username" value={signupFormData.username} onChange={handleOnChange}/><br></br>
+          <input type="text" autocomplete='off' name="username" value={signupFormData.username} onChange={handleOnChange}/><br></br>
           <label>Email:</label>
-          <input type="text" name="email" value={signupFormData.email} onChange={handleOnChange}/><br></br>
+          <input type="text" autocomplete='off' name="email" value={signupFormData.email} onChange={handleOnChange}/><br></br>
           <label>Password:</label>
-          <input type="text" name="password"value={signupFormData.password} onChange={handleOnChange}/><br></br>
+          <input type="text" autocomplete='off' name="password"value={signupFormData.password} onChange={handleOnChange}/><br></br>
           <input type="submit"/>
         </form>
       </div>

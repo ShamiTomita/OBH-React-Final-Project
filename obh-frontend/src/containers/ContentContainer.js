@@ -23,10 +23,14 @@ state = {
   render(){
 
     let randomArray = []
-    const randomOne = Math.floor(Math.random()*this.props.media.length)
-    const randomTwo = Math.floor(Math.random()*this.props.media.length)
-    const randomThree = Math.floor(Math.random()*this.props.media.length)
-    randomArray.push(this.props.media[randomOne], this.props.media[randomTwo], this.props.media[randomThree])
+    let randomOne = Math.floor(Math.random()*this.props.media.length)
+    let randomTwo = Math.floor(Math.random()*this.props.media.length)
+    let randomThree = Math.floor(Math.random()*this.props.media.length)
+    if (randomOne !== randomTwo && randomTwo !== randomThree){
+      randomArray.push(this.props.media[randomOne], this.props.media[randomTwo], this.props.media[randomThree])
+    }else{
+      randomArray.push(this.props.media[0], this.props.media[2], this.props.media[4])
+    }
     console.log("wender", this.state, this.props.media)
 
     return(

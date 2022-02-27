@@ -71,6 +71,7 @@
 }
 .OBH-Content{
   background-color: #8080ff;
+  padding-top: 10px;
 }
 .movies-shows{
   background-color: #9999ff;
@@ -82,6 +83,10 @@
 .contentPage > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
+  flex-shrink: 0;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
 }
 .plot{
   text-align: left;

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 class UserSelectContainer extends Component{
 
   componentDidMount(){
-    debugger
+
     console.log(this.props)
     let id = this.props.account['data']['id']
     console.log("ID:", id)
@@ -18,7 +18,7 @@ class UserSelectContainer extends Component{
 
     return(
       <>
-      <UserContainer />
+      <UserContainer users={this.props.users}/>
       </>
 
       )
@@ -27,7 +27,8 @@ class UserSelectContainer extends Component{
 const mapStateToProps = state => {
   return({
     account: state.currentAccount,
-    currentUser: state.userReducer.current_user
+    currentUser: state.userReducer.current_user,
+    users: state.userReducer.users
   })
 }
 

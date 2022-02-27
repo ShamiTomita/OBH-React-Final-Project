@@ -13,7 +13,7 @@ const UserSelect =(props)=> {
 console.log(props.users)
 let navigate = useNavigate();
 
-debugger
+
 const handleClick = (event) =>{
 event.preventDefault()
 

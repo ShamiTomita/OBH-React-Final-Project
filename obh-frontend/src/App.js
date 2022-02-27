@@ -10,6 +10,7 @@ import OBHContainer from './containers/OBHContainer'
 import {Route, Routes} from 'react-router-dom'
 import ShowPage from './components/ShowPage'
 import LogoutComponent from './components/LogoutComponent.js'
+import BrowseContainer from './containers/BrowseContainer.js'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -23,7 +24,7 @@ class App extends Component {
   }
 
   render(){
-    const {is_LoggedIn, account, currentShow} = this.props
+    const {is_LoggedIn, account, currentShow, currentUser} = this.props
   console.log("app", this.props)
 
     const show = currentShow
@@ -33,8 +34,10 @@ class App extends Component {
       <Routes>
         {currentShow? <Route path={`/show/${show.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
         <Route path='/home' element={<OBHContainer/>}/>
-        <Route path='/logout' element={<LogoutComponent/>}/>
         <Route path='/users' element={<UserSelectContainer loggedIn={this.props.is_LoggedIn} account={account}/>}/>
+        <Route path='/browse' element={<BrowseContainer/>}/>
+        <Route path='/logout' element={<LogoutComponent/>}/>
+
       </Routes>
 
 

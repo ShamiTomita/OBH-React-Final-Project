@@ -13,7 +13,7 @@ export const clearCurrentUser = () => {
 }
 
 export const fetchUsers = (account_id) =>{
-  debugger
+  
   console.log(account_id)
   return(dispatch) =>{
     return fetch(`http://localhost:3000/api/v1/accounts/${account_id}/users`, {

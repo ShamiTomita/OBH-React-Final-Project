@@ -21,7 +21,7 @@ const userReducer = (state = {users:[], current_user: null, loaded:false},  acti
       loaded:true
     }
     case "DELETE_USER":
-      debugger
+      
       console.log("Deleting from State", action.user)
 
 

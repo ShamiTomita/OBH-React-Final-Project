@@ -1,11 +1,9 @@
-import React, {useEffect} from "react"
-import {setCurrentUser,  clearCurrentUser, deleteUser} from '../actions/userActions'
-import {fetchFaves} from '../actions/favoriteActions'
+import React from "react"
+import {setCurrentUser,  clearCurrentUser, deleteUser} from '../../actions/userActions'
+import {fetchFaves} from '../../actions/favoriteActions'
 import {connect} from "react-redux"
 import {useNavigate} from "react-router-dom"
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import DeleteUser from './DeleteUser'
 
@@ -46,8 +44,7 @@ const mapStateToProps = state => {
   return({
     users: state.userReducer.users,
     loaded: state.userReducer.loaded,
-    currentUser: state.userReducer.current_user,
-    users: state.userReducer.users
+    currentUser: state.userReducer.current_user
   })
 }
 

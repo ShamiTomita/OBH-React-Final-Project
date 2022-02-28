@@ -14,7 +14,7 @@ let navigate = useNavigate();
    let show = props.media.find((show)=> show.id === id)
    console.log(show)
    props.setCurrentShow(show)
-   navigate(`/show/${show.id}`)
+   navigate(`/shows/${show.id}`)
   }
 
   const content = props.media.map((content)=>{

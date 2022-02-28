@@ -1,4 +1,4 @@
-# React-Final-Project
+# OBH | React-Final-Project
 React-Redux Frontend / Rails Backend
 This API is an entertainment platform where Users can make an account, create profiles, and then browse and favorite different movies and show. Ruby On Rails is used as the backend and React-Redux is used for the frontend.
 

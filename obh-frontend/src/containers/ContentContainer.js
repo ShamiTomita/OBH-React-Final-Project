@@ -36,9 +36,11 @@ state = {
     return(
       <div>
       <Container>
-
+        <Row>
+        <Col>
           <ContentCarousel setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} media={this.props.media} rC1={randomArray[0]} rC2={randomArray[1]} rC3={randomArray[2]}/>
-
+        </Col>
+        </Row>
         </Container>
           <ContentPage className="content-page" setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} media={this.props.media}/>
 

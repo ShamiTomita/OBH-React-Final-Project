@@ -33,12 +33,13 @@ const ShowPage = (props) => {
     <br></br>
     <BackButton clearCurrentShow={props.clearCurrentShow} clearCurrentFave={props.clearCurrentFave}/>
     <Container className="show-page-card">
-
-    <>
+    <Row>
+    <Col>
     <ShowContent show={props.show}/>
-    </>
-        {!currentFave ? <FavoriteButton addFave={props.addFave} currentUserId={props.currentUserId} show={props.show} faves={props.faves}/> : <UnfavoriteButton deleteFave={props.deleteFave} fetchFaves={props.deleteFave} faveId={props.currentFaveId} currentUserId={props.currentUserId} show={props.show}/>}
 
+        {!currentFave ? <FavoriteButton addFave={props.addFave} currentUserId={props.currentUserId} show={props.show} faves={props.faves}/> : <UnfavoriteButton deleteFave={props.deleteFave} fetchFaves={props.deleteFave} faveId={props.currentFaveId} currentUserId={props.currentUserId} show={props.show}/>}
+    </Col>
+    </Row>
     </Container>
     </>
     </div>

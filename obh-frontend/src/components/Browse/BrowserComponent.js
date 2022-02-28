@@ -22,7 +22,7 @@ let navigate = useNavigate();
          <Button variant="primary" className="content-card-title" onClick={handleRedirect} value={content.id} >{content.attributes.title}</Button>
           <p>{content.attributes.content_type} | {content.attributes.country} | {content.attributes.language} | {content.attributes.year}</p>
          <p>{content.attributes.director} | {content.attributes.genre}</p>
-         <img className="img-button"src={content.attributes.poster} alt={content.attributes.title}  height="100" width="100"/>
+         <img className="img-button"src={content.attributes.poster} alt={content.attributes.title}  height="100" width="100"/><p>{content.attributes.plot}</p>
         </div>
 
 

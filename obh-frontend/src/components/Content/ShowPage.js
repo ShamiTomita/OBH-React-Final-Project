@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import BackButton from "./BackButton"
-import FavoriteButton from './FavoriteButton'
-import UnfavoriteButton from './UnfavoriteButton'
+import React, { useEffect } from 'react';
+import BackButton from "../Buttons/BackButton"
+import FavoriteButton from '../Buttons/FavoriteButton'
+import UnfavoriteButton from '../Buttons/UnfavoriteButton'
 import {connect} from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ShowContent from './ShowContent'
-import {clearCurrentShow} from '../actions/contentActions'
-import {addFave, deleteFave, setCurrentFave, clearCurrentFave} from '../actions/favoriteActions'
+import {clearCurrentShow} from '../../actions/contentActions'
+import {addFave, deleteFave, setCurrentFave, clearCurrentFave} from '../../actions/favoriteActions'
 const ShowPage = (props) => {
 
   console.log(props.faves)

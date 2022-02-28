@@ -11,7 +11,7 @@ const handleRedirect = (event)=>{
   let show = props.media.find((show)=> show.id === id)
   console.log(show)
   props.setCurrentShow(show)
-  navigate(`/show/${show.id}`)
+  navigate(`/shows/${show.id}`)
  }
 
  const matchedFaves = props.media.filter((show) => props.faves.some(fave => parseInt(show.id) === fave.attributes.content_id ))

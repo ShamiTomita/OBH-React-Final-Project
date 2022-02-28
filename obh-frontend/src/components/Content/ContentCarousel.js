@@ -4,8 +4,6 @@ import {useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 const ContentCarousel = (props) => {
 
 
@@ -24,7 +22,7 @@ const ContentCarousel = (props) => {
     let show = props.media.find((show)=> show.id === id)
     console.log(show)
     props.setCurrentShow(show)
-    navigate(`/show/${show.id}`)
+    navigate(`/shows/${show.id}`)
    }
 
   return (

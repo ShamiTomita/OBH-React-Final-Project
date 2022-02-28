@@ -1,6 +1,6 @@
 import React, {Component} from "react"
-import UserCreateForm from '../components/UserCreateForm'
-import UserSelect from "../components/UserSelect.js"
+import UserCreateForm from '../components/User/UserCreateForm'
+import UserSelect from "../components/User/UserSelect.js"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'

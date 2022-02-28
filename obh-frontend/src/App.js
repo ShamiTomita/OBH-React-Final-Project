@@ -8,7 +8,7 @@ import LoginComponent from './components/LoginComponent'
 import SignUpComponent from './components/SignUpComponent'
 import OBHContainer from './containers/OBHContainer'
 import {Route, Routes} from 'react-router-dom'
-import ShowPage from './components/ShowPage'
+import ShowPage from './components/Content/ShowPage'
 import LogoutComponent from './components/LogoutComponent.js'
 import BrowseContainer from './containers/BrowseContainer.js'
 import Container from 'react-bootstrap/Container'
@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   render(){
-    const {is_LoggedIn, account, currentShow, currentUser} = this.props
+    const {is_LoggedIn, account, currentShow} = this.props
   console.log("app", this.props)
 
     const show = currentShow
@@ -32,10 +32,10 @@ class App extends Component {
     <>
     <NavBar />
       <Routes>
-        {currentShow? <Route path={`/show/${show.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
+        {currentShow? <Route path={`/shows/${show.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
         <Route path='/home' element={<OBHContainer/>}/>
         <Route path='/users' element={<UserSelectContainer loggedIn={this.props.is_LoggedIn} account={account}/>}/>
-        <Route path='/browse' element={<BrowseContainer/>}/>
+        <Route path='/shows' element={<BrowseContainer/>}/>
         <Route path='/logout' element={<LogoutComponent/>}/>
 
       </Routes>
@@ -72,8 +72,7 @@ const mapStateToProps = state => {
   return ({
     is_LoggedIn: !!state.currentAccount,
     account: state.currentAccount,
-    currentShow: state.currentShow,
-    currentUser: state.userReducer.currentUser
+    currentShow: state.currentShow
   })
 }
 export default connect(mapStateToProps,{currentAccount, fetchContent})(App)

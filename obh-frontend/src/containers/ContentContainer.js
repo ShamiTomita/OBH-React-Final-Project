@@ -1,7 +1,7 @@
 import React, {Component} from "react"
-import ContentCarousel from '../components/ContentCarousel'
-import ContentPage from '../components/ContentPage.js'
-import FavoritesPage from '../components/FavoritesPage.js'
+import ContentCarousel from '../components/Content/ContentCarousel'
+import ContentPage from '../components/Content/ContentPage.js'
+import FavoritesPage from '../components/Content/FavoritesPage.js'
 import {fetchFaves} from '../actions/favoriteActions'
 import {setCurrentShow, clearCurrentShow} from '../actions/contentActions'
 import { connect } from "react-redux";

@@ -11,7 +11,7 @@ const BackButton = (props) => {
     navigate(`/home`)
    }
   return(
-    <Button onClick={handleRedirect}>Back</Button>
+    <Button class="btn btn-secondary" onClick={handleRedirect}>Back</Button>
   )
 }
 

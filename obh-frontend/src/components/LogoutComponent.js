@@ -9,6 +9,7 @@ const Logout = ({ logout, clearCurrentUser, resetLoginForm, clearCurrentShow}) =
 
   let navigate = useNavigate();
   return (
+    <div className="logout">
     <form onSubmit={(event) => {
         event.preventDefault()
         resetLoginForm()
@@ -20,6 +21,7 @@ const Logout = ({ logout, clearCurrentUser, resetLoginForm, clearCurrentShow}) =
     }>
       <input type="submit" value="Log Out"/>
     </form>
+    </div>
   )
 }
 

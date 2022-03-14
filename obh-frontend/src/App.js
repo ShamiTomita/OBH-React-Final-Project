@@ -43,7 +43,7 @@ class App extends Component {
 
     </>
     :
-    <div>
+    <div className="initial">
       <Container>
       <Row>
       <Col>

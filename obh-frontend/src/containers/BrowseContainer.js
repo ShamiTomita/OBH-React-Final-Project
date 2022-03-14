@@ -14,13 +14,10 @@ const BrowseContainer = (props, clearCurrentShow, setCurrentShow, fetchFaves ) =
   let drama
   let romance
   let history
-  let adventure
   let fantasy
+  let adventure
   let comedy
-  let action
-  let mystery
   let animation
-  let family
   let genres = []
   genres = props.media.map((media) => media.attributes.genres)
   console.log(genres)
@@ -43,7 +40,7 @@ const BrowseContainer = (props, clearCurrentShow, setCurrentShow, fetchFaves ) =
 
     return(
       <div className="OBH-Content">
-        <h2 className="movies-shows">Dramas</h2>
+        <h2 className="movies-shows">Drama</h2>
         <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={drama}/>
         <h2 className="movies-shows" >Romance</h2>
         <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={romance}/>
@@ -53,7 +50,12 @@ const BrowseContainer = (props, clearCurrentShow, setCurrentShow, fetchFaves ) =
         <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={animation}/>
         <h2 className="movies-shows">Thriller</h2>
         <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={thriller}/>
-
+        <h2 className="movies-shows">Fantasy</h2>
+        <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={fantasy}/>
+        <h2 className="movies-shows">Comedy</h2>
+        <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={comedy}/>
+        <h2 className="movies-shows">Adventure</h2>
+        <BrowserComponent setCurrentShow={props.setCurrentShow} clearCurrentShow={props.clearCurrentShow} media={adventure}/>
       </div>
     )
 }

@@ -8,7 +8,7 @@ const BackButton = (props) => {
   const handleRedirect = (event)=>{
     props.clearCurrentShow()
     props.clearCurrentFave()
-    navigate(`/home`)
+    navigate(`/shows`)
    }
   return(
     <Button class="btn btn-secondary" onClick={handleRedirect}>Back</Button>

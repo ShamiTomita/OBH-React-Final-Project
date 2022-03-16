@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import BrowseContainer from './BrowseContainer'
 class ContentContainer extends Component{
 state = {
   content: [],
@@ -44,8 +45,8 @@ state = {
         </Container>
           <ContentPage className="content-page" setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} media={this.props.media}/>
 
-          {!!this.props.faves ? <FavoritesPage setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} faves={this.props.faves} media={this.props.media}/> : <>hi</>}
-
+          {!!this.props.faves.length > 1 ? <FavoritesPage setCurrentShow={this.props.setCurrentShow} clearCurrentShow={this.props.clearCurrentShow} faves={this.props.faves} media={this.props.media}/> : <></>}
+          <BrowseContainer/>
       </div>
     )
   }

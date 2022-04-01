@@ -16,6 +16,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import NavBar from './components/NavBar';
 
+
 class App extends Component {
   componentDidMount(){
     console.log(this.props)

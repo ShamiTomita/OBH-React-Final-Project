@@ -59,6 +59,7 @@ seeds = [
 "https://omdbapi.com/?t=six-wives-with-lucy&apikey=f1962a9"
 ]
 seed_urls = seeds.shuffle
+
 def get_content(seed_urls)
   seed_urls.each do |url|
     response = RestClient.get(url)
@@ -81,4 +82,5 @@ def get_content(seed_urls)
       )
   end
 end
+
 get_content(seed_urls)

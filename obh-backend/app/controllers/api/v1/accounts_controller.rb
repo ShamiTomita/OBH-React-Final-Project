@@ -1,5 +1,6 @@
 class Api::V1::AccountsController < ApplicationController
-skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
+    
   def create
     @account = Account.new(account_params)
     @account.password = params[:password]
@@ -12,7 +13,6 @@ skip_before_action :verify_authenticity_token
   end
 
   def index
-
     @accounts = Account.all
     render json: AccountSerializer.new(@accounts)
   end
@@ -27,10 +27,8 @@ skip_before_action :verify_authenticity_token
   def set_account
     @account = Account.find(params[:id])
   end
+
   def account_params
     params.require(:account).permit(:username, :email, :password)
   end
-
-
-
 end

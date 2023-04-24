@@ -1,7 +1,6 @@
 class  Api::V1::FavoritedContentsController < ApplicationController
 skip_before_action :verify_authenticity_token
   def create
-
     favorited_content = FavoritedContent.create(favorited_content_params)
     if favorited_content.save
       render json:{favorited_content: FavoritedContentSerializer.new(favorited_content)}, status: :created
@@ -38,7 +37,7 @@ skip_before_action :verify_authenticity_token
     end 
   end
 
-  private
+private
   def set_user
     @user = User.find(params[:user_id])
   end

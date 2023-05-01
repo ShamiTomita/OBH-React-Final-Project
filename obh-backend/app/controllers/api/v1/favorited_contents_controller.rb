@@ -42,6 +42,6 @@ private
     @user = User.find(params[:user_id])
   end
   def favorited_content_params
-    params.permit(:user_id, :content_id)
+    params.permit(:user_id, :content_id, :favorited_content)
   end
 end

@@ -42,6 +42,6 @@ skip_before_action :verify_authenticity_token
   private
 
   def user_params
-    params.require(:user).permit(:name, :account_id)
+    params.require(:user).permit(:name, :account_id, :favorited_content)
   end
 end

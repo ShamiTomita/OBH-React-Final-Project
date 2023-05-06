@@ -1,30 +1,4 @@
 seeds = [
-"https://www.omdbapi.com/?t=princess-mononoke&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=my-neighbor-totoro&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=porco-rosso&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=lupin-iii&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=moving-castle&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=ponyo&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=on-poppy-hill&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=wind-rises&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=kaguya&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=spirited-away&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=akira&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=kingdom-of-dreams&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=duck-amuck&apikey=f1962a9",
-
 "https://www.omdbapi.com/?t=Opera-Doc&apikey=f1962a9",
 
 "https://www.omdbapi.com/?t=rabbit-fire&apikey=f1962a9",
@@ -36,8 +10,6 @@ seeds = [
 "https://www.omdbapi.com/?t=tudor-monastery&apikey=f1962a9",
 
 "https://www.omdbapi.com/?t=harlots-housewives&apikey=f1962a9",
-
-"https://www.omdbapi.com/?t=hidden-killers&apikey=f1962a9",
 "https://www.omdbapi.com/?t=pokemon&apikey=f1962a9",
 "https://www.omdbapi.com/?t=Am%C3%A9lie&apikey=f1962a9",
 "https://www.omdbapi.com/?t=duke-of-burgundy&apikey=f1962a9",
@@ -48,7 +20,6 @@ seeds = [
 "https://omdbapi.com/?t=web-therapy&apikey=f1962a9",
 "https://omdbapi.com/?t=tsars&apikey=f1962a9",
 "https://omdbapi.com/?t=tampopo&apikey=f1962a9",
-"https://omdbapi.com/?t=y-tu&apikey=f1962a9",
 "https://omdbapi.com/?t=heat-of-the-sun&apikey=f1962a9",
 "https://omdbapi.com/?t=Ascension&y=2021&apikey=f1962a9",
 "https://omdbapi.com/?t=moonrise-kingdom&apikey=f1962a9",

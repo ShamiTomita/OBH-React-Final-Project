@@ -1,7 +1,7 @@
-import React, {Component} from "react"
+import React, {Component, useEffect} from "react"
 import './App.css';
 import UserSelectContainer from './containers/UserSelectContainer.js'
-import {connect} from 'react-redux'
+import {connect, useSelector, useDispatch} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
 import {fetchContent} from "./actions/contentActions.js"
 import LoginComponent from './components/LoginComponent'
@@ -16,28 +16,38 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import NavBar from './components/NavBar';
 
-class App extends Component {
-  componentDidMount(){
-    console.log(this.props)
-    this.props.currentAccount()
-    this.props.fetchContent()
-  }
+function App() {
+/*   const mapStateToProps = state => {
+    console.log("State", state)
+    return ({
+      is_LoggedIn: !!state.currentAccount,
+      account: state.currentAccount,
+      currentShow: state.currentShow
+    })
+  } */
 
-  render(){
-    const {is_LoggedIn, account, currentShow} = this.props
-  console.log("app", this.props)
+  const is_LoggedIn = useSelector(state => !!state.currentAccount)
+  const account = useSelector(state => state.currentAccount)
+  const currentShow = useSelector(state => state.currentShow)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    console.log(is_LoggedIn, account, currentShow)
+    dispatch(currentAccount())
+    dispatch(fetchContent())
+  }, [is_LoggedIn, currentShow, dispatch])
 
-    const show = currentShow
+  //const {is_LoggedIn, account, currentShow} = this.props
+
+  const show = currentShow
   return( is_LoggedIn ?
     <>
     <NavBar />
       <Routes>
         {currentShow? <Route path={`/shows/${show.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
         <Route path='/home' element={<OBHContainer/>}/>
-        <Route path='/users' element={<UserSelectContainer loggedIn={this.props.is_LoggedIn} account={account}/>}/>
+        <Route path='/users' element={<UserSelectContainer loggedIn={is_LoggedIn} account={account}/>}/>
         <Route path='/shows' element={<BrowseContainer/>}/>
         <Route path='/logout' element={<LogoutComponent/>}/>
-
       </Routes>
 
 
@@ -66,13 +76,5 @@ class App extends Component {
     </div>
     );
   }
-}
-const mapStateToProps = state => {
-  console.log("State", state)
-  return ({
-    is_LoggedIn: !!state.currentAccount,
-    account: state.currentAccount,
-    currentShow: state.currentShow
-  })
-}
-export default connect(mapStateToProps,{currentAccount, fetchContent})(App)
+
+export default App;

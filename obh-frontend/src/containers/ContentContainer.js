@@ -19,6 +19,7 @@ state = {
   componentDidMount(){
     console.log("cDM", this.props);
     this.props.fetchFaves(this.props.currentUserId)
+    this.props.clearCurrentShow()
   }
 
   render(){

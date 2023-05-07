@@ -26,15 +26,16 @@ console.log("im clicked", props, event.target.value)
   navigate("/home")
 }
 
+  const users = props.users.map((user) => (
+    <div key={user.id}>
+      <Button className="user-button" onClick={handleClick} value={user.id} > {user.attributes.name}</Button>
+      <DeleteUser currentUser={props.currentUser} userId={user.id}clearCurrentUser={props.clearCurrentUser} deleteUser={props.deleteUser}/>
+    </div>
+    ))
 
     return(
       <Container>
-      {props.users.map((user) => (
-        <>
-        <Button className="user-button" onClick={handleClick} value={user.id} key={user.id}> {user.attributes.name} </Button><DeleteUser currentUser={props.currentUser} userId={user.id}clearCurrentUser={props.clearCurrentUser} deleteUser={props.deleteUser}/>
-        <br></br>
-        </>
-      ))}
+        {users}
       </Container>
 
     )

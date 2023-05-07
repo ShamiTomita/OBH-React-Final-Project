@@ -1,35 +1,40 @@
-import React, {Component} from "react"
+import React, {useEffect} from "react"
 import UserContainer from './UserContainer.js'
-
+import { useSelector } from "react-redux";
 import {fetchUsers} from '../actions/userActions'
-import { connect } from "react-redux";
-class UserSelectContainer extends Component{
+import { currentAccount } from "../actions/fetchAccount.js";
+const UserSelectContainer = (props) => {
 
-  componentDidMount(){
+  const account = useSelector(state => state.currentAccount)
+  const currentUser = useSelector(state => state.userReducer.currentAccount)
+  const users = useSelector(state => state.userReducer.users)
+  const id = account['data']['id']
 
-    console.log(this.props)
-    let id = this.props.account['data']['id']
-    console.log("ID:", id)
-    this.props.fetchUsers(parseInt(id))
-  }
-  render(){
-    let {account} = this.props
-    console.log(account, this.props.currentUser)
+  useEffect(()=>{
+    fetchUsers(parseInt(id))
+  }, [])
 
+
+    /* account: state.currentAccount,
+    currentUser: state.userReducer.current_user,
+    users: state.userReducer.users */
+
+
+ 
     return(
       <>
-      <UserContainer users={this.props.users}/>
+      <UserContainer users={users}/>
       </>
 
       )
-  }
+  
 }
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
   return({
     account: state.currentAccount,
     currentUser: state.userReducer.current_user,
     users: state.userReducer.users
   })
-}
+} */
 
-export default connect(mapStateToProps, {fetchUsers})(UserSelectContainer)
+export default UserSelectContainer

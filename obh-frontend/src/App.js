@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from "react"
 import './App.css';
 import UserSelectContainer from './containers/UserSelectContainer.js'
-import {connect, useSelector, useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
 import {fetchContent} from "./actions/contentActions.js"
 import LoginComponent from './components/LoginComponent'
@@ -32,13 +32,13 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     console.log(is_LoggedIn, account, currentShow)
-    getConent();
+    getContent();
     getCurrentAccount();
   }, [])
 
-  const getConent = useCallback(() => {
+  const getContent = useCallback(() => {
     dispatch(fetchContent());
-  },)
+  },[])
 
   const getCurrentAccount = useCallback(() => {
     dispatch(currentAccount());
@@ -46,12 +46,11 @@ function App() {
 
   //const {is_LoggedIn, account, currentShow} = this.props
 
-  const show = currentShow
   return( is_LoggedIn ?
     <>
     <NavBar />
       <Routes>
-        {currentShow? <Route path={`/shows/${show.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
+        {currentShow ? <Route path={`/shows/${currentShow.id}`} element={<ShowPage show={currentShow}/>}/> : <></>}
         <Route path='/home' element={<OBHContainer/>}/>
         <Route path='/users' element={<UserSelectContainer loggedIn={is_LoggedIn} account={account}/>}/>
         <Route path='/shows' element={<BrowseContainer/>}/>

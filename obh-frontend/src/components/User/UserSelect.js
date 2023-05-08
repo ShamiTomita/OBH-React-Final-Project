@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {setCurrentUser,  clearCurrentUser, deleteUser} from '../../actions/userActions'
 import {fetchFaves} from '../../actions/favoriteActions'
 import {connect} from "react-redux"
@@ -25,6 +25,7 @@ console.log("im clicked", props, event.target.value)
   props.fetchFaves(id)
   navigate("/home")
 }
+
 
   const users = props.users.map((user) => (
     <div key={user.id}>

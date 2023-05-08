@@ -9,7 +9,7 @@ const handleRedirect = (event)=>{
   console.log("Im clicked!", event.target.value)
   let id = event.target.value
   let show = props.media.find((show)=> show.id === id)
-  console.log(show)
+  console.log("HEY WHAT ARE YOU BLINC?", show)
   props.setCurrentShow(show)
   navigate(`/shows/${show.id}`)
  }

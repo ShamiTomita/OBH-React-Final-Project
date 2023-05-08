@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from "react"
+import React, {useCallback, useEffect, useState} from "react"
 import './App.css';
 import UserSelectContainer from './containers/UserSelectContainer.js'
 import {useSelector, useDispatch} from 'react-redux'
@@ -30,12 +30,16 @@ function App() {
   const account = useSelector(state => state.currentAccount)
   const currentShow = useSelector(state => state.currentShow)
   const dispatch = useDispatch()
+  const user = useSelector(state => state.currentUser)
+  const state = useSelector(state => state)
+
+
   useEffect(() => {
-    console.log(is_LoggedIn, account, currentShow)
+    console.log(is_LoggedIn, account, currentShow, user, state)
     getContent();
     getCurrentAccount();
   }, [])
-
+  
   const getContent = useCallback(() => {
     dispatch(fetchContent());
   },[])

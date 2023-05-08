@@ -63,7 +63,7 @@ const getSetCurrentShow = (show) => {
         </Container>
           <ContentPage className="content-page" setCurrentShow={getSetCurrentShow} clearCurrentShow={getClearCurrentShow} media={media}/>
 
-          {faves.length > 1 ? <FavoritesPage setCurrentShow={getSetCurrentShow} clearCurrentShow={getClearCurrentShow} faves={faves} media={media}/> : <></>}
+          {faves.length > 0 ? <FavoritesPage setCurrentShow={getSetCurrentShow} clearCurrentShow={getClearCurrentShow} faves={faves} media={media}/> : <></>}
           <BrowseContainer/>
       </div>
     )

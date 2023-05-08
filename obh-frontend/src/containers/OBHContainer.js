@@ -1,19 +1,21 @@
-import React, {Component} from "react"
-import {connect} from "react-redux"
+import React, {Component, useEffect} from "react"
+import {connect, useDispatch, useSelector} from "react-redux"
 import {clearCurrentShow} from '../actions/contentActions'
 import ContentContainer from '../containers/ContentContainer.js';
 import UserSelectContainer from '../containers/UserSelectContainer.js'
 import Container from 'react-bootstrap/Container'
-class OBHContainer extends Component {
+const OBHContainer = (props) => {
 
-  componentDidMount(){
-    this.props.clearCurrentShow()
+  const dispatch = useDispatch()
+ useEffect(() => {
+  dispatch(clearCurrentShow())
+ }, [])
 
-  }
-  render(){
-    console.log(this.props)
+ const currentUser = useSelector(state => state.userReducer.current_user)
+  
+    console.log(currentUser)
 
-    return(this.props.currentUser ?
+    return(currentUser ?
       <>
 
         <div className="OBH-Content">
@@ -23,18 +25,17 @@ class OBHContainer extends Component {
       </>
       :
       <>
-      <UserSelectContainer/ >
+      <UserSelectContainer/>
       </>
     )
   }
-}
 
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
   return({
     account: state.currentAccount,
     currentUser: state.userReducer.current_user,
 
   })
-}
+} */
 
-export default connect(mapStateToProps, {clearCurrentShow})(OBHContainer)
+export default OBHContainer

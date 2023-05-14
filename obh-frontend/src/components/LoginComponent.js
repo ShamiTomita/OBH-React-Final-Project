@@ -25,6 +25,8 @@ const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history})
 
 
       return(
+        <>
+          <h1>Login</h1>
           <form onSubmit={handleOnSubmit}>
           <div className="form-group">
             <label>Account Name:</label>
@@ -36,7 +38,7 @@ const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history})
             <button className="btn btn-primary" type="submit">Submit</button>
           </div>
           </form>
-        
+        </>
       )
     }
     const mapStateToProps = state => {

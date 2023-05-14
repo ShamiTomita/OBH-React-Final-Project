@@ -24,7 +24,8 @@ const handleOnSubmit= (event)=>{
  }
 
     return(
-      
+      <>
+      <h1>Signup</h1>
         <form onSubmit={handleOnSubmit}>
         <div className="form-group">
           <label>Account Name:</label>
@@ -36,6 +37,7 @@ const handleOnSubmit= (event)=>{
           <button className="btn btn-primary" type="submit">Submit</button>
         </div>
         </form>
+      </>
     )
   }
 

@@ -30,7 +30,7 @@ state ={
         <form onSubmit={this.handleOnSubmit}>
           <label>User Name:</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} required="required"/><br></br>
-          <input type="submit"/>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     )

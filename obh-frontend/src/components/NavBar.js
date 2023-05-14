@@ -33,7 +33,7 @@ const NavBar = (props) => {
       >
         <Button className="nav-button">Logout</Button>
       </NavLink>
-      {props.currentUser? <button className="user-name"> Hi {props.currentUser.attributes.name}</button> : <button className="user-name">Please Select A User</button>}
+      {props.currentUser? <button className="user-name btn btn-light"> Hi {props.currentUser.attributes.name}</button> : <button className="user-name btn btn-light">Please Select A User</button>}
     </div>
     </>
   );

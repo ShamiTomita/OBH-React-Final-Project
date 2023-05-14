@@ -1,5 +1,5 @@
-import React from "react"
-import { connect } from "react-redux";
+import React, {useState} from "react"
+import { connect, useSelector } from "react-redux";
 import {fetchAccount} from "../actions/fetchAccount.js"
 import { updateLoginForm } from "../actions/loginForm.js"
 import {useNavigate} from "react-router-dom"
@@ -13,13 +13,15 @@ const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history})
     }
    updateLoginForm(updatedFormInfo)
  }
- let navigate = useNavigate();
+  let navigate = useNavigate();
+
   const handleOnSubmit= (event)=>{
      console.log("HOS", loginFormData)
      event.preventDefault()
      fetchAccount(loginFormData, history)
      navigate("/users")
    }
+  const loginFormDataFromState = useSelector(state => state.loginForm)
 
 
       return(

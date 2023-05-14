@@ -4,7 +4,7 @@ import UserSelectContainer from './containers/UserSelectContainer.js'
 import {useSelector, useDispatch} from 'react-redux'
 import {currentAccount} from './actions/fetchAccount.js'
 import {fetchContent} from "./actions/contentActions.js"
-import LoginComponent from './components/LoginComponent'
+import LoginAndSignupContainer from "./containers/LoginAndSignupContainer";
 import SignUpComponent from './components/SignUpComponent'
 import OBHContainer from './containers/OBHContainer'
 import {Route, Routes} from 'react-router-dom'
@@ -65,25 +65,7 @@ function App() {
     </>
     :
     <div className="initial">
-      <Container>
-      <Row>
-      <Col>
-      <h1>Please Login or SignUp</h1>
-      <h3>LOGIN</h3>
-      <br></br>
-      <LoginComponent/>
-      <br></br>
-      </Col>
-      </Row>
-      <Row>
-      <Col>
-      <h3>SIGNUP</h3>
-      <br></br>
-      <SignUpComponent/>
-      <br></br>
-      </Col>
-      </Row>
-      </Container>
+        <LoginAndSignupContainer />
     </div>
     );
   }

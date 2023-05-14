@@ -25,17 +25,18 @@ const LoginComponent = ({loginFormData, updateLoginForm, fetchAccount, history})
 
 
       return(
-        <div>
           <form onSubmit={handleOnSubmit}>
+          <div className="form-group">
             <label>Account Name:</label>
-            <input autoComplete='off' type="text" name="username" value={loginFormData.username} onChange={handleOnChange}/><br></br>
+            <input className="form-control" autoComplete='off' type="text" name="username" value={loginFormData.username} onChange={handleOnChange}/><br></br>
             <label>Email:</label>
-            <input autoComplete='off' type="text" name="email" value={loginFormData.email}onChange={handleOnChange}/><br></br>
+            <input className="form-control" autoComplete='off' type="text" name="email" value={loginFormData.email}onChange={handleOnChange}/><br></br>
             <label>Password:</label>
-            <input autoComplete='off' type="text" name="password"value={loginFormData.password}onChange={handleOnChange}/><br></br>
-            <input type="submit"/>
+            <input className="form-control" autoComplete='off' type="text" name="password"value={loginFormData.password}onChange={handleOnChange}/><br></br>
+            <button className="btn btn-primary" type="submit">Submit</button>
+          </div>
           </form>
-        </div>
+        
       )
     }
     const mapStateToProps = state => {

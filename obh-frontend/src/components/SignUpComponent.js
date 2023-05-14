@@ -24,17 +24,18 @@ const handleOnSubmit= (event)=>{
  }
 
     return(
-      <div>
+      
         <form onSubmit={handleOnSubmit}>
+        <div className="form-group">
           <label>Account Name:</label>
-          <input type="text" autoComplete='off' name="username" value={signupFormData.username} onChange={handleOnChange}/><br></br>
+          <input className="form-control" type="text" autoComplete='off' name="username" value={signupFormData.username} onChange={handleOnChange}/><br></br>
           <label>Email:</label>
-          <input type="text" autoComplete='off' name="email" value={signupFormData.email} onChange={handleOnChange}/><br></br>
+          <input  className="form-control"type="text" autoComplete='off' name="email" value={signupFormData.email} onChange={handleOnChange}/><br></br>
           <label>Password:</label>
-          <input type="text" autoComplete='off' name="password"value={signupFormData.password} onChange={handleOnChange}/><br></br>
-          <input type="submit"/>
+          <input  className="form-control"type="text" autoComplete='off' name="password"value={signupFormData.password} onChange={handleOnChange}/><br></br>
+          <button className="btn btn-primary" type="submit">Submit</button>
+        </div>
         </form>
-      </div>
     )
   }
 
